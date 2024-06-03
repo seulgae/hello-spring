@@ -1,0 +1,27 @@
+plugins {
+	id 'java' // Java
+	id 'org.springframework.boot' version '3.3.0' // Spring initializr version Setting
+	id 'io.spring.dependency-management' version '1.1.5'
+}
+
+group = 'hello'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral() // dependencies에 있는 라이브러리를 다운받아오는 사이트
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // Web engine template
+	implementation 'org.springframework.boot:spring-boot-starter-web' // Spring web project
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
